@@ -51,6 +51,9 @@ if __name__ == "__main__":
 
     credential = DefaultAzureCredential()
 
+    print("credential.get_token")
+    print(credential.get_token("https://graph.microsoft.com/.default").token)
+
     if type(config) is not list:
         config = [config]
     

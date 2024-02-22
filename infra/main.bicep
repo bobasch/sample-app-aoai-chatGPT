@@ -21,7 +21,7 @@ param searchIndexName string = 'gptkbindex'
 param searchUseSemanticSearch bool = false
 param searchSemanticSearchConfig string = 'default'
 param searchTopK int = 5
-param searchEnableInDomain bool = true
+param searchEnableInDomain bool = false
 param searchContentColumns string = 'content'
 param searchFilenameColumn string = 'filepath'
 param searchTitleColumn string = 'title'
@@ -31,13 +31,13 @@ param openAiResourceName string = ''
 param openAiResourceGroupName string = ''
 param openAiResourceGroupLocation string = location
 param openAiSkuName string = ''
-param openAIModel string = 'turbo16k'
-param openAIModelName string = 'gpt-35-turbo-16k'
-param openAITemperature int = 0
+param openAIModel string = 'four128k'
+param openAIModelName string = 'gpt-4'
+param openAITemperature string = '0.5'
 param openAITopP int = 1
-param openAIMaxTokens int = 1000
+param openAIMaxTokens int = 4096
 param openAIStopSequence string = ''
-param openAISystemMessage string = 'You are an AI assistant that helps people find information.'
+param openAISystemMessage string = 'Du bist ein Experte für Ersatzbaustoffe, Recycling und Kreislaufwirtschaft. Du unterstützt die Anwender bei der richtigen Anwendung der gesetzlichen Regelungen. Du gibst umfangreiche Informationen und Quellenangaben. Wichtig ist, dass alle Informationen die du gibst gesichert sind.'
 param openAIApiVersion string = '2023-06-01-preview'
 param openAIStream bool = true
 param embeddingDeploymentName string = 'embedding'
@@ -160,7 +160,7 @@ module openAi 'core/ai/cognitiveservices.bicep' = {
         model: {
           format: 'OpenAI'
           name: openAIModelName
-          version: '0613'
+          version: '1106-Preview'
         }
         capacity: 30
       }
@@ -316,7 +316,7 @@ output AZURE_OPENAI_MODEL_NAME string = openAIModelName
 output AZURE_OPENAI_SKU_NAME string = openAi.outputs.skuName
 output AZURE_OPENAI_KEY string = openAi.outputs.key
 output AZURE_OPENAI_EMBEDDING_NAME string = '${embeddingDeploymentName}'
-output AZURE_OPENAI_TEMPERATURE int = openAITemperature
+output AZURE_OPENAI_TEMPERATURE string = openAITemperature
 output AZURE_OPENAI_TOP_P int = openAITopP
 output AZURE_OPENAI_MAX_TOKENS int = openAIMaxTokens
 output AZURE_OPENAI_STOP_SEQUENCE string = openAIStopSequence

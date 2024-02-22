@@ -1,14 +1,14 @@
 [
     {
-        "data_path": "<path to data>",
-        "location": "<azure region, e.g. 'westus2'>",
-        "subscription_id": "<subscription id>",
-        "resource_group": "<resource group name>",
-        "search_service_name": "<search service name to use or create>",
-        "index_name": "<index name to use or create>",
+        "data_path": "../data/ErsatzbaustoffV.pdf",
+        "location": "switzerlandnorth",
+        "subscription_id": "9075aec3-7970-4c8a-aa5f-bd5af8a54960",
+        "resource_group": "rg-ebvedv",
+        "search_service_name": "gptkb-tiiz6eepsf6vm",
+        "index_name": "gptkbindex",
         "chunk_size": 1024,
         "token_overlap": 128,
         "semantic_config_name": "default",
-        "language": "<Language to support for example use 'en' for English. Checked supported languages here under lucene - https://learn.microsoft.com/en-us/azure/search/index-add-language-analyzers"
+        "language": "de"
     }
 ]
